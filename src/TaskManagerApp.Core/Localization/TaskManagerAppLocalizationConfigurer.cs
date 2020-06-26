@@ -14,7 +14,6 @@ namespace TaskManagerApp.Localization
             localizationConfiguration.Languages.Add(new LanguageInfo("en", "English", "famfamfam-flags england", isDefault: true));
             localizationConfiguration.Languages.Add(new LanguageInfo("tr", "Türkçe", "famfamfam-flags tr"));
             localizationConfiguration.Languages.Add(new LanguageInfo("fr", "French", "famfamfam-flags fr"));
-
             localizationConfiguration.Sources.Add(
                 new DictionaryBasedLocalizationSource(TaskManagerAppConsts.LocalizationSourceName,
                     new JsonEmbeddedFileLocalizationDictionaryProvider(
