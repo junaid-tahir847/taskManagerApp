@@ -1,0 +1,11 @@
+{
+  "culture": "fr",
+  "texts": {
+    "HelloWorld": "Bonjour le monde!",
+    "ChangeLanguage": "Changer de langue",
+    "HomePage": "HomePage",
+    "About": "À propos",
+    "Home_Description": "Bienvenue dans TaskManagerApp ...",
+    "About_Description": "Il s'agit d'un modèle de démarrage simple pour utiliser ASP.NET Core avec le cadre ABP.."
+  }
+}
