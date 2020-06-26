@@ -25,7 +25,15 @@ namespace TaskManagerApp.Web.Startup
                         url: "Home/About",
                         icon: "fa fa-info"
                         )
+                ).AddItem(
+                    new MenuItemDefinition(
+                          "TaskList",
+                    L("TaskList"),
+                    url: "Tasks",
+                    icon: "fa fa-tasks"
+                    )
                 );
+            // To add new menu item in nav bar
         }
 
         private static ILocalizableString L(string name)
