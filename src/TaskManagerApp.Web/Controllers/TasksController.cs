@@ -24,15 +24,15 @@ namespace TaskManagerApp.Web.Controllers
 
         public async Task<ActionResult> Index(GetAllTasksInput input)
         {
-            //var output = await _taskAppService.GetAll(input);
-            //var model = new IndexViewModel(output.Items);
-            //return View(model);
             var output = await _taskAppService.GetAll(input);
-            var model = new IndexViewModel(output.Items)
-            {
-                SelectedTaskState = input.State
-            };
+            var model = new IndexViewModel(output.Items);
             return View(model);
+            //var output = await _taskAppService.GetAll(input);
+            //var model = new IndexViewModel(output.Items)
+            //{
+            //    SelectedTaskState = input.State
+            //};
+            //return View(model);
         }
     }
 
