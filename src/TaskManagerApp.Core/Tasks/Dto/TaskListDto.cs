@@ -12,13 +12,16 @@ namespace TaskManagerApp.Tasks.Dto
         public TaskState? State { get; set; }
     }
 
+
     [AutoMapFrom(typeof(Task))]
     public class TaskListDto : EntityDto, IHasCreationTime
     {
-            public string Title { get; set; }
-            public string Description { get; set; }
-            public DateTime CreationTime { get; set; }
-            public TaskState State { get; set; }
+        public int? AssignedPersonId { get; set; }
+        public string AssignedPersonName { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public DateTime CreationTime { get; set; }
+        public TaskState State { get; set; }
 
         /*
         GetAllTasksInput DTO defines input parameters of the GetAll app service method.

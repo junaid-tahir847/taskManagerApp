@@ -4,6 +4,7 @@ using Abp.Timing;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using TaskManagerApp.Persons;
 
 namespace TaskManagerApp.Tasks
 {
@@ -16,6 +17,20 @@ namespace TaskManagerApp.Tasks
     //  Task entity defines a required Title and an optional Description.
 
     {
+        [ForeignKey(nameof(AssignedPersonId))]
+        public Person AssignedPerson { get; set; }
+        public int? AssignedPersonId { get; set; }
+        //Guid guid = Guid.NewGuid();
+
+        //AssignedPerson is optional. So, as task can be assigned to a person or can be unassigned.
+        public Task(string title, string description = null, int? assignedPersonId = null)
+        : this()
+        {
+            Title = title;
+            Description = description;
+            AssignedPersonId = assignedPersonId;
+        }
+        // I'm also adding AssignedPerson property to the Task entity (only sharing the changed parts here):
         public const int MaxTitleLength = 256;
         public const int MaxDescriptionLength = 64 * 1024; //64KB
 
@@ -41,12 +56,12 @@ namespace TaskManagerApp.Tasks
         //so we can easily switch to DateTime.UtcNow in the feature if it's needed. 
         //Always use Clock.Now instead of DateTime.Now while working with ABP framework.
 
-        public Task(string title, string description = null)
-                : this()
-        {
-            Title = title;
-            Description = description;
-        }
+        //public Task(string title, string description = null)
+        //        : this()
+        //{
+        //    Title = title;
+        //    Description = description;
+        //}
     }
 
     public enum TaskState : byte

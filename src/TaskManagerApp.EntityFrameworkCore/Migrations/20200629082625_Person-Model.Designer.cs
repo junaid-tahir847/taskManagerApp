@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TaskManagerApp.EntityFrameworkCore;
 
 namespace TaskManagerApp.Migrations
 {
     [DbContext(typeof(TaskManagerAppDbContext))]
-    partial class TaskManagerAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200629082625_Person-Model")]
+    partial class PersonModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -3,7 +3,7 @@ using Abp.Domain.Repositories;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TaskManagerApp.Tasks.Dto;
-using Task = TaskManagerApp.Tasks.Task;
+using TaskManagerApp.Tasks;
 using System.Linq;
 using Abp.Linq.Extensions;
 using Microsoft.EntityFrameworkCore;
@@ -27,9 +27,9 @@ namespace TaskManagerApp.Services.TaskAppService
         */
 
 
-        private readonly IRepository<Task> _taskRepository;
+        private readonly IRepository<Tasks.Task> _taskRepository;
 
-        public TaskAppService(IRepository<Task> taskRepository)
+        public TaskAppService(IRepository<Tasks.Task> taskRepository)
         {
             _taskRepository = taskRepository;
         }
@@ -38,6 +38,7 @@ namespace TaskManagerApp.Services.TaskAppService
         {
             var tasks = await _taskRepository
                 .GetAll()
+                .Include(t=>t.AssignedPerson)
                 .WhereIf(input.State.HasValue, t => t.State == input.State.Value)
                 .OrderByDescending(t => t.CreationTime)
                 .ToListAsync();
